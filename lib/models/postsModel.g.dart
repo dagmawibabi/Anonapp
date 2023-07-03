@@ -18,17 +18,20 @@ class PostsModelAdapter extends TypeAdapter<PostsModel> {
     };
     return PostsModel()
       ..username = fields[0] as String
-      ..datetime = fields[1] as int;
+      ..datetime = fields[1] as int
+      ..content = fields[2] as String;
   }
 
   @override
   void write(BinaryWriter writer, PostsModel obj) {
     writer
-      ..writeByte(2)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.username)
       ..writeByte(1)
-      ..write(obj.datetime);
+      ..write(obj.datetime)
+      ..writeByte(2)
+      ..write(obj.content);
   }
 
   @override

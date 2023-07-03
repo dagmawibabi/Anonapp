@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:anonapp/models/postsModel.dart';
-import 'package:anonapp/routes/homepage.dart';
+import 'package:anonapp/routes/homePage.dart';
+import 'package:anonapp/routes/loginSignupPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
@@ -26,7 +27,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    Color primaryColor = Color.fromARGB(255, 25, 25, 25);
+    Color primaryColor = Colors.black;
+    // Color.fromARGB(255, 25, 25, 25);
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
@@ -37,7 +39,8 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       initialRoute: "/",
       routes: {
-        "/": (context) => HomePage(),
+        "/": (context) => LoginSignupPage(),
+        "homePage": (context) => HomePage(),
       },
       themeMode: ThemeMode.dark,
       darkTheme: ThemeData(
@@ -56,6 +59,16 @@ class _MyAppState extends State<MyApp> {
         iconTheme: IconThemeData(
           color: Colors.white,
           size: 19.0,
+        ),
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: Colors.grey[900]!,
+          foregroundColor: Colors.white,
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          hintStyle: TextStyle(
+            fontSize: 15.0,
+            color: Colors.grey,
+          ),
         ),
       ),
     );

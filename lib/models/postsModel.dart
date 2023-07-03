@@ -9,4 +9,7 @@ class PostsModel extends HiveObject {
 
   @HiveField(1)
   late int datetime;
+
+  @HiveField(2)
+  late String content;
 }
